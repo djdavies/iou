@@ -13,5 +13,10 @@
 
 Route::resource('posts', 'PostController');
 
-// Show all users
 Route::resource('users', 'UserController');
+
+Route::get('/', function () {
+	return view ('layouts.app');
+});
+
+Auth::routes();
