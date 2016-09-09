@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     public function user() {
-    	$this->belongsTo('App\User');
+    	return $this->belongsTo('App\User');
+    }
+
+    public function tags() {
+    	return $this->hasMany('App\Tag');
     }
 }

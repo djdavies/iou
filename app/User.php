@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'image'
     ];
 
     /**
@@ -29,5 +29,9 @@ class User extends Authenticatable
 
     public function post() {
         return $this->hasMany('App\Post');
+    }
+
+    public function getImgUrlAttribute() {
+        return "/images/{$this->name}.jpg";
     }
 }

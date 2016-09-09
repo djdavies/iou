@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,34 +12,41 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Jake',
-            'email' => 'jake@email.com',
-            'password' => bcrypt('secret'),
-        ]);
+        $users = [
+            [
+                'name' => 'Jake',
+                'email' => 'jake@email.com',
+                'password' => bcrypt('secret'),
+                'image' => 'jake.png'
+            ],
+            [
+                'name' => 'rachel',
+                'email' => 'rachel@email.com',
+                'password' => bcrypt('secret'),
+                'image' => 'rachel.png'
+            ],
+            [
+                'name' => 'pieter',
+                'email' => 'pieter@email.com',
+                'password' => bcrypt('secret'),
+                'image' => 'pieter.png'
+            ],
+            [
+                'name' => 'boris',
+                'email' => 'boris@email.com',
+                'password' => bcrypt('secret'),
+                'image' => 'boris.png'
+            ],
+            [
+                'name' => 'Ben',
+                'email' => 'ben@email.com',
+                'password' => bcrypt('secret'),
+                'image' => 'ben.png'
+            ]
+        ];
 
-        DB::table('users')->insert([
-            'name' => 'rachel',
-            'email' => 'rachel@email.com',
-            'password' => bcrypt('secret'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'pieter',
-            'email' => 'pieter@email.com',
-            'password' => bcrypt('secret'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'boris',
-            'email' => 'boris@email.com',
-            'password' => bcrypt('secret'),
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Ben',
-            'email' => 'ben@email.com',
-            'password' => bcrypt('secret'),
-        ]);
+        foreach ($users as $user) {
+            User::create($user);
+        }
     }
 }

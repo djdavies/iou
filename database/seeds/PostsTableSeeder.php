@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Post;
 
 class PostsTableSeeder extends Seeder
 {
@@ -11,24 +12,27 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
-            'content' => 'Looking for someone to mow my lawn.',
-            'user_id' => 1
-        ]);
+        $posts = [
+            [ 
+                'content' => 'Looking for someone to mow my lawn.',
+                'user_id' => 1
+            ],
+            [
+                'content' => 'Can someone buy my weekly shopping?',
+                'user_id' => 2
+            ],
+            [
+                'content' => 'Looking for someone to set up my Wi-Fi network with WPA2 encrpytion -- 7 devices.',
+                'user_id' => 3
+            ],
+            [
+                'content' => 'I would like a back massage.',
+                'user_id' => 4
+            ]
+        ];
 
-        DB::table('posts')->insert([
-            'content' => 'Can someone buy my weekly shopping?',
-            'user_id' => 2
-        ]);
-
-        DB::table('posts')->insert([
-            'content' => 'Looking for someone to set up my Wi-Fi network with WPA2 encrpytion -- 7 devices.',
-            'user_id' => 3
-        ]);
-
-        DB::table('posts')->insert([
-            'content' => 'I would like a back massage.',
-            'user_id' => 4
-        ]);
+        foreach ($posts as $post) {
+            Post::create($post);
+        }
     }
 }

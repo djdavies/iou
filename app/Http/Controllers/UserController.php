@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Post;
-use App\Tag;
+use App\User;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('user', 'tags')->get();
+        $users = User::get();
 
-        return view('post.posts', ['posts' => $posts]);
+        return view('user.users', ['users' => $users]);
     }
 
     /**
@@ -30,7 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -52,7 +51,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::where('id', $id)->get();
+        
+        return view('user.show', ['users' => $users]);    
     }
 
     /**

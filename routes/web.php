@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('posts');
-});
-
 Route::resource('posts', 'PostController');
+
+// Show all users
+Route::resource('users', 'UserController');
