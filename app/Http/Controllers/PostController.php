@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-
 use App\Post;
-use App\Tag;
 
 class PostController extends Controller
 {
@@ -30,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -41,7 +37,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::check()) {
+            $jobRequest = $request->input('job_request');
+            echo 'hi';
+
+            Post::create(['content' => $jobRequest, 'user_id' => Auth::id]);
+        }
+
+
     }
 
     /**

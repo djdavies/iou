@@ -227,7 +227,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
-
     ],
 
 ];

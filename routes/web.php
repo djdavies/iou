@@ -16,7 +16,7 @@ Route::resource('posts', 'PostController');
 Route::resource('users', 'UserController');
 
 Route::get('/', function () {
-	return view ('layouts.app');
+	return 'TODO: make landing page';
 });
 
 Auth::routes();
