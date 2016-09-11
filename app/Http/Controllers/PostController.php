@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -64,7 +65,7 @@ class PostController extends Controller
     public function show($id)
     {
         $posts = Post::where('id', $id)->get();
-        
+
         return view('posts.show', ['posts' => $posts]);
     }
 
