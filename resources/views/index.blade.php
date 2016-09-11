@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 @section('content')
 	<form method="post">
 		<div class="form-group">

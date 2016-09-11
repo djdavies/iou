@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class PostController extends Controller
 {
@@ -14,9 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('user', 'tags')->get();
+        $posts = Post::all();
 
-        return view('post.posts', ['posts' => $posts]);
+        return view('posts.index')->withPosts($posts);
     }
 
     /**
@@ -26,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-
+        return view ('posts.create');
     }
 
     /**
@@ -38,13 +40,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
-            $jobRequest = $request->input('job_request');
-            echo 'hi';
+            $this->validate($request, [
+                'description' => 'required'
+            ]);
 
-            Post::create(['content' => $jobRequest, 'user_id' => Auth::id]);
+            $input = $request->input('description');
+
+            Post::create(['content' => $input, 'user_id' => Auth::id()]);
+
+
+            Session::flash('flash_message', 'Post created successfully');
+
+            return redirect('posts');
         }
-
-
     }
 
     /**
@@ -57,7 +65,7 @@ class PostController extends Controller
     {
         $posts = Post::where('id', $id)->get();
         
-        return view('post.show', ['posts' => $posts]); 
+        return view('posts.show', ['posts' => $posts]);
     }
 
     /**
