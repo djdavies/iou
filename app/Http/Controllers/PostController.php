@@ -50,10 +50,12 @@ class PostController extends Controller
             Post::create(['content' => $input, 'user_id' => Auth::id()]);
 
 
-            Session::flash('flash_message', 'Post created successfully');
+            Session::flash('flash_message', 'Post created successfully.');
 
-            return redirect('posts');
+        } else {
+            Session::flash('flash_message', 'Please log in to make a post.');
         }
+            return redirect('posts');
     }
 
     /**

@@ -42,15 +42,20 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        if (Auth::check()) {
+            $this->validate($request, [
+                'id' => 'required'
+            ]);
+
+
+            $id = $request->input('id');
             // TODO: default value of completed = 0
-            Job::create(['post_id' => 1, 'user_id' => Auth::id(), 'accepted' => 1, 'completed' => 0]);
+            Job::create(['post_id' => $id, 'user_id' => Auth::id(), 'accepted' => 1, 'completed' => 0]);
 
             Session::flash('flash_message', "You've accepted the job!");
 
             return redirect('posts');
-        }
     }
+
 
     /**
      * Display the specified resource.
@@ -85,7 +90,7 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

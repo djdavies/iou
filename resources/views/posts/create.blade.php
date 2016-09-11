@@ -19,7 +19,7 @@
     {!! Form::label('description', 'Description:', ['class' => 'control-label']) !!}
     {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
     {!! Form::label('image', 'Optional: choose image related to your job', ['class' => 'control-label']) !!}
-    {!! Form::file('image') !!}
+    {!! Form::file('') !!}
 </div>
 
 {!! Form::submit('Create New Post', ['class' => 'btn btn-primary']) !!}

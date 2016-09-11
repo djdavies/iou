@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJobratingsTable extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateJobratingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jobRatings', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id');
             $table->integer('user_id');
@@ -29,6 +29,6 @@ class CreateJobratingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('jobRatings');
+        Schema::drop('ratings');
     }
 }

@@ -19,7 +19,7 @@ class CreateJobsTable extends Migration
             $table->integer('user_id');
             $table->boolean('accepted');
             $table->boolean('completed');
-            $table->timestamps();    
+            $table->timestamps();
         });
     }
 

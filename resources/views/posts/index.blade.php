@@ -28,7 +28,7 @@
                                 @endforeach
                             </em>
                             <p>
-                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-default" role="button">View Job</a>
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-default" role="button">I'll do it!</a>
                             </p>
                         </div>
                     </div>
