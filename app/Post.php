@@ -12,7 +12,11 @@ class Post extends Model
     	return $this->belongsTo('App\User');
     }
 
-    public function tags() {
+    public function tag() {
     	return $this->hasMany('App\Tag');
+    }
+
+    public function job() {
+        return $this->hasOne('App\Job');
     }
 }

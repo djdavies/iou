@@ -15,6 +15,8 @@ Route::resource('posts', 'PostController');
 
 Route::resource('users', 'UserController');
 
+Route::resource('jobs', 'JobController');
+
 Route::get('/', function () {
 	return 'TODO: make landing page';
 });

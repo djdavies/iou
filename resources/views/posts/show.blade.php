@@ -7,6 +7,6 @@
         <br>
         Posted: {{ $post->created_at}}
         <br>
-        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-default" role="button">I'll do this!</a>
+        <a href="{{ route('jobs.show', $post->id) }}" class="btn btn-default" role="button">I'll do this!</a>
 	@endforeach
 @endsection

@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
+use App\Job;
 use Session;
-//use Carbon\Carbon;
 
-class PostController extends Controller
+
+
+class JobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +21,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-
-        return view('posts.index')->withPosts($posts);
+        return 'hi from jobs index';
     }
 
     /**
@@ -29,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view ('posts.create');
+        return view('jobs.create');
     }
 
     /**
@@ -41,16 +43,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
-            $this->validate($request, [
-                'description' => 'required'
-            ]);
+            // TODO: default value of completed = 0
+            Job::create(['post_id' => 1, 'user_id' => Auth::id(), 'accepted' => 1, 'completed' => 0]);
 
-            $input = $request->input('description');
-
-            Post::create(['content' => $input, 'user_id' => Auth::id()]);
-
-
-            Session::flash('flash_message', 'Post created successfully');
+            Session::flash('flash_message', "You've accepted the job!");
 
             return redirect('posts');
         }
@@ -66,7 +62,7 @@ class PostController extends Controller
     {
         $posts = Post::where('id', $id)->get();
 
-        return view('posts.show', ['posts' => $posts]);
+        return view('jobs.show', ['posts' => $posts]);
     }
 
     /**

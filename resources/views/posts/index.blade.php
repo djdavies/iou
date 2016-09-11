@@ -23,7 +23,7 @@
                             <h3>{{ $post->user->name }} is looking for...</h3>
                             <p>{{ $post->content }}</p>
                             <em>Tags:
-                                @foreach($post->tags as $tag)
+                                @foreach($post->tag as $tag)
                                     {{{ $tag->name }}},
                                 @endforeach
                             </em>
