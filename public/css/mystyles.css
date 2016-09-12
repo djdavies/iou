@@ -1,0 +1,10 @@
+body {
+    padding-top: 70px;
+    background: url('/images/sunset.jpg');
+    display: compact;
+    background-attachment: fixed;
+}
+
+.nav-pills {
+    margin-top: 3px;
+}

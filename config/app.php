@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
+        'Clockwork\Support\Laravel\ClockworkServiceProvider',
 
         /*
          * Package Service Providers...

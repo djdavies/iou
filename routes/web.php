@@ -18,7 +18,8 @@ Route::resource('users', 'UserController');
 Route::resource('jobs', 'JobController');
 
 Route::get('/', function () {
-	return 'TODO: make landing page';
+//	return 'TODO: make landing page';
+    phpinfo();
 });
 
 Auth::routes();

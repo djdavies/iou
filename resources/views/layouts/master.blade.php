@@ -11,7 +11,9 @@
         <title>iou - @yield('title')</title>
 
         <link rel="stylesheet" type="text/css" href="/css/app.css">
-        <link rel="stylesheet" type="text/css" href="/css/nav.css">
+        <link rel="stylesheet" type="text/css" href="/css/mystyles.css">
+        <link rel="stylesheet" type="text/css" href="/font-awesome-4.6.3/css/font-awesome.min.css">
+
 
         <script>
             window.Laravel = <?php echo json_encode([
@@ -23,9 +25,10 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="#">I</a></li>
-                    <li role="presentation"><a href="#">O</a></li>
-                    <li role="presentation"><a href="#">U</a></li>
+                    <li role="presentation" class="active"><a href="posts"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Posts</a></li>
+                    <li role="presentation"><a href="jobs"><i class="fa fa-tasks fa-fw" aria-hidden="true"></i>Your Jobs</a></li>
+                    <li role="presentation"><a href="#"><i class="fa fa-bell fa-fw" aria-hidden="true"></i>Job Proposals</a></li>
+                    <li role="presentation"><a href="#"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Your Profile</a></li>
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
@@ -52,6 +55,7 @@
                             </ul>
                         </li>
                     @endif
+                    <li role="presentation" class="active"><i class="fa fa-money fa-fw" aria-hidden="true"></i>1</li>
                 </ul>
             </div> <!-- /container -->
         </nav>

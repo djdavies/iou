@@ -21,7 +21,15 @@ class JobController extends Controller
      */
     public function index()
     {
-        return 'hi from jobs index';
+        if (Auth::check()) {
+//            // Show only if owned by the user
+//            $jobs = Job::where('user_id', '=', Auth::id())->get();
+//            return view('jobs.index', ['jobs' => $jobs]);
+            $post = Post::find(Auth::id());
+            $jobs = $post->job()->get();
+            return view('jobs.index', ['jobs' => $jobs]);
+        }
+
     }
 
     /**
@@ -42,18 +50,22 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::check()) {
             $this->validate($request, [
                 'id' => 'required'
             ]);
 
-
             $id = $request->input('id');
             // TODO: default value of completed = 0
-            Job::create(['post_id' => $id, 'user_id' => Auth::id(), 'accepted' => 1, 'completed' => 0]);
+            Job::create(['post_id' => $id, 'user_id' => Auth::id(), 'accepted' => 0, 'completed' => 0]);
 
-            Session::flash('flash_message', "You've accepted the job!");
+            Session::flash('flash_message', "You've proposed to do this job!");
 
-            return redirect('posts');
+        } else {
+            Session::flash('flash_message', "Please log in to propose job offers!");
+        }
+
+        return redirect('posts');
     }
 
 
@@ -65,9 +77,12 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        $posts = Post::where('id', $id)->get();
+//        $post = Job::find($id);
+//
+//        $jobs = $post->jobs()->get();
+//
+//        return view('jobs.show', ['jobs' => $jobs]);
 
-        return view('jobs.show', ['posts' => $posts]);
     }
 
     /**
