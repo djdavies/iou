@@ -8,3 +8,8 @@ body {
 .nav-pills {
     margin-top: 3px;
 }
+
+.well {
+    background-color: #222222;
+    border-color: #3097d1;
+}
