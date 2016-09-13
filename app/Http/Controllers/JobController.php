@@ -24,6 +24,10 @@ class JobController extends Controller
             // find all the jobs, that have been proposed by the Auth::user
             $jobs = Auth::user()->jobs;
             return view('jobs.index', ['jobs' => $jobs]);
+        } else {
+            Session::flash('flash_message', "Please log in to view jobs!");
+
+            return redirect('posts');
         }
     }
 
@@ -89,7 +93,8 @@ class JobController extends Controller
      */
     public function edit($id)
     {
-        //
+        $job = Job::find($id);
+        return view('jobs.edit', compact('job'));
     }
 
     /**
@@ -101,7 +106,13 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'yes_offer' => 'required'
+        ]);
 
+        if ($request->yes_offer) {
+            Job::find($id)->update(['accepted' => 1]);
+        }
     }
 
     /**

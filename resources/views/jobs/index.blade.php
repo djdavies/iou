@@ -25,5 +25,3 @@
     @endforeach
 @endsection
 
-
-

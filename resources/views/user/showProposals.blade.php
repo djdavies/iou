@@ -21,16 +21,7 @@
                     <td>{{ $job->name }}</td>
                     <td>{{ $job->content }}</td>
                     <td>
-                        {!! Form::open([
-                            'route' => 'jobs.update', $job->id
-                        ]) !!}
-                        Yes {!!  Form::checkbox('yes_offer', '1') !!}
-                        <br>
-                        No {!!  Form::checkbox('no_offer', '0') !!}
-                        <br>
-                        {!! Form::submit('Respond To Offer', ['class' => 'btn btn-primary']) !!}
-
-                        {!! Form::close() !!}
+                        @include('jobs.edit')
                     </td>
                 </tr>
                 </tbody>
