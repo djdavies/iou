@@ -77,12 +77,12 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        // Show job proposals -- if user owns the post, and accepted == 1
-//        if (Auth::check()) {
-//            $post = Post::find($id);
-//            $jobs = $post->job()->get();
-//            return view('jobs.show', ['jobs' => $jobs]);
-//        }
+//         Show job proposals -- if user owns the post, and accepted == 1
+        if (Auth::check()) {
+            $post = Post::find($id);
+            $jobs = $post->job()->get();
+            return view('jobs.show', ['jobs' => $jobs]);
+        }
     }
 
     /**
@@ -112,7 +112,12 @@ class JobController extends Controller
 
         if ($request->yes_offer) {
             Job::find($id)->update(['accepted' => 1]);
+            Session::flash('flash_message', "You've accepted this job offer!");
+        } else {
+            Session::flash('flash_message', "For some reason, you can't accept this job offer...");
         }
+
+        return redirect('posts');
     }
 
     /**
