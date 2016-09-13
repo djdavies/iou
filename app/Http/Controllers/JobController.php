@@ -74,11 +74,11 @@ class JobController extends Controller
     public function show($id)
     {
         // Show job proposals -- if user owns the post, and accepted == 1
-        if (Auth::check()) {
-            $post = Post::find($id);
-            $jobs = $post->job()->get();
-            return view('jobs.show', ['jobs' => $jobs]);
-        }
+//        if (Auth::check()) {
+//            $post = Post::find($id);
+//            $jobs = $post->job()->get();
+//            return view('jobs.show', ['jobs' => $jobs]);
+//        }
     }
 
     /**

@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 use App\User;
 
+use Illuminate\Support\Facades\Auth;
+
+use App\Post;
+
 class UserController extends Controller
 {
     /**
@@ -88,5 +92,18 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showProposals($id)
+    {
+        if (Auth::check()) {
+            // Get Users post_ids from Posts, join on post_ids in Jobs table.
+            // Alternatively: https://laravel.com/docs/5.3/eloquent-relationships#has-many-through
+            $jobs = \DB::table('users')
+                ->join('posts', 'posts.user_id', '=', 'users.id')
+                ->join('jobs', 'jobs.post_id', '=', 'posts.id')
+                ->get();
+        }
+        return view('user.showProposals', ['jobs' => $jobs]);
     }
 }

@@ -24,6 +24,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/users/{id}/proposals', 'UserController@showProposals');
+
 // For jQuery
 //Route::get('api/v1/users/{user}/posts', 'UserController@posts')->name('users.posts');
 

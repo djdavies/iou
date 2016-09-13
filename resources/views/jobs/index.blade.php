@@ -4,7 +4,7 @@
         <h2>Here are all the jobs you've applied for.</h2>
     </div>
     @foreach ($jobs as $job)
-        <div class="well well-lg">
+        <div class="well well-md">
             <table class="table">
                 <thead>
                 <tr>
