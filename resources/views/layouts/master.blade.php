@@ -25,9 +25,9 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="posts"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Posts</a></li>
-                    <li role="presentation"><a href="jobs"><i class="fa fa-tasks fa-fw" aria-hidden="true"></i>Your Jobs</a></li>
-                    <li role="presentation"><a href="#"><i class="fa fa-bell fa-fw" aria-hidden="true"></i>Job Proposals</a></li>
+                    <li role="presentation" class="active"><a href="/posts"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Posts</a></li>
+                    <li role="presentation"><a href="/jobs"><i class="fa fa-tasks fa-fw" aria-hidden="true"></i>Your Jobs</a></li>
+                    <li role="presentation"><a href="/jobs/{{Auth::id(  )}}"><i class="fa fa-bell fa-fw" aria-hidden="true"></i>Job Proposals</a></li>
                     <li role="presentation"><a href="#"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Your Profile</a></li>
 
                     <!-- Authentication Links -->

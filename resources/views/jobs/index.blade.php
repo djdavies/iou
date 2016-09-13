@@ -8,16 +8,16 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Job Owner</th>
-                    <th>Job Description</th>
-                    <th>Job Accepted By Owner?</th>
+                    <th><span style="color:#3097D1">Job Owner</span></th>
+                    <th><span style="color:#3097D1">Job Description</span></th>
+                    <th><span style="color:#3097D1">Job Accepted By Owner?</span></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>{{ $job->post->user->name }}</td>
                     <td>{{ $job->post->content }}</td>
-                    <td>{{ $job->accepted }}</td>
+                    <td>@if ($job->accepted == 1) <span style="color:#3097D1">Yes</span> @else No @endif</td>
                 </tr>
                 </tbody>
             </table>

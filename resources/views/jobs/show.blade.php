@@ -1,12 +1,10 @@
 @extends('layouts.master')
 @section('content')
+    <div class="well well-lg">
+        <h2>Here are the proposals for your jobs.</h2>
+    </div>
     @foreach ($jobs as $job)
-        Job id: {{ $job->id }}
-        <br>
-        Post id: {{ $job->post_id }}
-        <br>
-        User id: {{ $job->user_id }}
-        <br>
+        The job:
         Accepted?: {{ $job->accepted }}
         <br>
         Completed: {{ $job->completed }}

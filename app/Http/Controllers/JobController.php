@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Job;
 use Session;
 
-
-
 class JobController extends Controller
 {
     /**
@@ -22,15 +20,13 @@ class JobController extends Controller
     public function index()
     {
         if (Auth::check()) {
-//            // Show only if owned by the user
-//            $jobs = Job::where('user_id', '=', Auth::id())->get();
-//            return view('jobs.index', ['jobs' => $jobs]);
-            $post = Post::find(Auth::id());
-            $jobs = $post->job()->get();
+
+            // find all the jobs, that have been proposed by the Auth::user
+            $jobs = Auth::user()->jobs;
             return view('jobs.index', ['jobs' => $jobs]);
         }
-
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -77,12 +73,12 @@ class JobController extends Controller
      */
     public function show($id)
     {
-//        $post = Job::find($id);
-//
-//        $jobs = $post->jobs()->get();
-//
-//        return view('jobs.show', ['jobs' => $jobs]);
-
+        // Show job proposals -- if user owns the post, and accepted == 1
+        if (Auth::check()) {
+            $post = Post::find($id);
+            $jobs = $post->job()->get();
+            return view('jobs.show', ['jobs' => $jobs]);
+        }
     }
 
     /**

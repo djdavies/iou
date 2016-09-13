@@ -27,11 +27,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function post() {
+    public function posts() {
         return $this->hasMany('App\Post');
     }
 
     public function getImgUrlAttribute() {
         return "/images/{$this->name}.jpg";
+    }
+
+    public function jobs() {
+        return $this->hasMany('App\Job');
     }
 }

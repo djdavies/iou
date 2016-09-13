@@ -23,3 +23,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// For jQuery
+//Route::get('api/v1/users/{user}/posts', 'UserController@posts')->name('users.posts');
+
+// in blade:
+// $.get('<route'>, function (response) {
+// console.dir(response)
+//});
