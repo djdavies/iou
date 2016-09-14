@@ -9,11 +9,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th><span style="color:#3097D1">User's Name</span></th>
-                        <th><span style="color:#3097D1">Job Description</span></th>
-                        <th>
-                            <span style="color:#3097D1">Accept Offer?</span>
-                        </th>
+                        <th>User's Name</th>
+                        <th>Job Description</th>
+                        <th>Accept Offer?</th>
+                        <th>Job Completed?</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,7 +20,12 @@
                     <td>{{ $job->name }}</td>
                     <td>{{ $job->content }}</td>
                     <td>
+                        {{-- Accepting the offer--}}
                         @include('jobs.edit')
+                    </td>
+                    <td>
+                        {{-- Marking job as completed--}}
+                        @include('jobs.complete')
                     </td>
                 </tr>
                 </tbody>

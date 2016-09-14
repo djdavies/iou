@@ -106,16 +106,28 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'yes_offer' => 'required'
-        ]);
+        // Validate them anyway.
+       if ($request->input('complete')) {
+           $this->validate($request, [
+               'complete' => 'required'
+           ]);
 
-        if ($request->yes_offer) {
-            Job::find($id)->update(['accepted' => 1]);
-            Session::flash('flash_message', "You've accepted this job offer!");
-        } else {
-            Session::flash('flash_message', "For some reason, you can't accept this job offer...");
-        }
+           Job::find($id)->update(['completed' => 1]);
+           Session::flash('flash_message', "You've marked this job as complete!");
+       } else {
+            Session::flash('flash_message', "For some reason, you can't mark this job as complete...");
+       }
+
+       if ($request->input('yes_offer')) {
+           $this->validate($request, [
+               'yes_offer' => 'required'
+           ]);
+
+           Job::find($id)->update(['accepted' => 1]);
+           Session::flash('flash_message', "You've accepted this job offer!");
+       } else {
+           Session::flash('flash_message', "For some reason, you can't accept this job offer...");
+       }
 
         return redirect('posts');
     }
