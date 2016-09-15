@@ -77,7 +77,7 @@ class JobController extends Controller
      */
     public function show($id)
     {
-//         Show job proposals -- if user owns the post, and accepted == 1
+        // Show job proposals -- if user owns the post, and accepted == 1
         if (Auth::check()) {
             $post = Post::find($id);
             $jobs = $post->job()->get();
@@ -124,6 +124,7 @@ class JobController extends Controller
            ]);
 
            Job::find($id)->update(['accepted' => 1]);
+
            Session::flash('flash_message', "You've accepted this job offer!");
        } else {
            Session::flash('flash_message', "For some reason, you can't accept this job offer...");

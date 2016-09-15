@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
-use Session;
 //use Carbon\Carbon;
 
 class PostController extends Controller
 {
+    use GetCredits;
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +19,13 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
+        if (Auth::check()) {
+            $credits = $this->getCredits(Auth::id());
+            return view('posts.index', ['posts' => $posts, 'credits' => $credits]);
+        }
+
         return view('posts.index')->withPosts($posts);
+
     }
 
     /**

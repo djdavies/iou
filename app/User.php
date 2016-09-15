@@ -38,4 +38,9 @@ class User extends Authenticatable
     public function jobs() {
         return $this->hasMany('App\Job');
     }
+
+    public function credit()
+    {
+        return $this->hasOne('App\credit');
+    }
 }

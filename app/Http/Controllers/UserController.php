@@ -57,7 +57,7 @@ class UserController extends Controller
     {
         $users = User::where('id', $id)->get();
         
-        return view('user.show', ['users' => $users]);    
+        return view('user.show', ['users' => $users]);
     }
 
     /**
@@ -106,4 +106,6 @@ class UserController extends Controller
         }
         return view('user.showProposals', ['jobs' => $jobs]);
     }
+
+
 }
