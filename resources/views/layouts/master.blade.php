@@ -13,7 +13,6 @@
         <link rel="stylesheet" type="text/css" href="/css/app.css">
         <link rel="stylesheet" type="text/css" href="/css/mystyles.css">
         <link rel="stylesheet" type="text/css" href="/font-awesome-4.6.3/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/css/tableHeadings.css">
 
         <script>
             window.Laravel = <?php echo json_encode([

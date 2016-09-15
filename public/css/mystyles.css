@@ -13,3 +13,20 @@ body {
     background-color: #222222;
     border-color: #3097d1;
 }
+
+.thumbnail a>img, .thumbnail>img {
+    height: 98px;
+    width: 98px;
+}
+
+th {
+    color:#3097D1;
+}
+
+.posts {
+    min-height: 400px;
+}
+
+.jumbotronPosts {
+    min-height: 600px
+}
