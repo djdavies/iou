@@ -14,8 +14,8 @@
     <div class="row">
         <div class="col-sm-6 col-md3">
             <div class="jumbotron jumbotronPosts">
-                <h1>Have at look at what people want you to do...</h1>
-                <p><em>...hopefully, you'll then be able to propose to complete the job they've advertised</em></p>
+                <h1>Have at look at <strong style="color: #3097D1;">what people want you to do</strong>.</h1>
+                <p><em>...hopefully, you'll then be able to <strong style="color: #3097D1;">propose to complete the job</strong> they've advertised</em></p>
 
                 @if(Auth::check())
                     <a href="{{ route('posts.create') }}" class="btn btn-default" role="button">Create Post</a>
@@ -25,8 +25,8 @@
         </div>
         <div class="col-sm-6 col-md3">
             <div class="jumbotron jumbotronPosts">
-                <h1>Or, ask the community to do something for you...</h1>
-                <p><em>...hopefully, you'll then receive offers, which you can accept, based on user ratings</em></p>
+                <h1>Or, <strong style="color: #3097D1;">ask the community to do something for you</strong>.</h1>
+                <p><em>...hopefully, you'll then <strong <strong style="color: #3097D1;">receive offers</strong>, which you can accept, based on user ratings</em></p>
                 <a href="#posts"><i class="fa fa-arrow-down fa-4x fa-fw" aria-hidden="true"></i></a>
             </div>
         </div>
@@ -45,9 +45,11 @@
                                 {{{ $tag->name }}},
                             @endforeach
                         </em>
-                        <p>
-                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-default" role="button">I'll do it!</a>
-                        </p>
+                        @if (Auth::check())
+                            <p>
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-default" role="button">I'll do it!</a>
+                            </p>
+                        @endif
                     </div>
                 </div>
             </div>

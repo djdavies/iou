@@ -127,6 +127,8 @@ class JobController extends Controller
 
            Session::flash('flash_message', "You've accepted this job offer!");
        } else {
+           // TODO: bug -- when marked job as *complete*, this flash message appears. Not even in the same block?!
+           // Possibly need to play with flushing flash Session?
            Session::flash('flash_message', "For some reason, you can't accept this job offer...");
        }
 

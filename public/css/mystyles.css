@@ -30,3 +30,11 @@ th {
 .jumbotronPosts {
     min-height: 600px
 }
+
+h2 {
+    color: #3097d1;
+}
+
+.jobPropose {
+    font-size: 16px;
+}

@@ -26,9 +26,11 @@
                 <ul class="nav nav-pills">
 
                     @if(Auth::check())
-                        <li role="presentation" class="active"><a href="/posts"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Posts</a></li>
+                        {{-- Active tab -- bug: unrecognized expression. Bootstrap/js problem. --}}
+                        <li role="presentation"><a href="/posts"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Posts</a></li>
                         <li role="presentation"><a href="/jobs"><i class="fa fa-tasks fa-fw" aria-hidden="true"></i>Your Jobs</a></li>
-                        <li role="presentation"><a href="/users/{{Auth::id()}}/proposals"><i class="fa fa-bell fa-fw aria-hidden="true"></i>Job Proposals</a></li>
+                        <li role="presentation"><a href="users/{{Auth::id()}}/proposals"><i class="fa fa-bell fa-fw aria-hidden="true"></i>Job Proposals</a></li>
+                        {{-- TODO: show some user stats--}}
                         {{--<li role="presentation"><a href="#"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Your Profile</a></li>--}}
                     @endif
 
@@ -57,12 +59,8 @@
                             </ul>
                         </li>
                     @endif
-                    <li role="presentation" class="active"><i class="fa fa-money fa-fw" aria-hidden="true" style="font-size:32px; color: #3097D1;"></i>
                         @if (Auth::check() && isset($credits))
-                            @section('credits')
-                                // Will break if not logged in.
-                                {{ $credits }}
-                            @endsections
+                    <li role="presentation" class="active"><i class="fa fa-money fa-fw" aria-hidden="true" style="font-size:32px; color: #3097D1; margin: 2px; ">={{ $credits }}</i>
                         @endif
                     </li>
                 </ul>
