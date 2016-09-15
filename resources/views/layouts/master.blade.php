@@ -58,11 +58,11 @@
                         </li>
                     @endif
                     <li role="presentation" class="active"><i class="fa fa-money fa-fw" aria-hidden="true" style="font-size:32px; color: #3097D1;"></i>
-                        @if (Auth::check())
+                        @if (Auth::check() && isset($credits))
                             @section('credits')
                                 // Will break if not logged in.
                                 {{ $credits }}
-                            @endsection
+                            @endsections
                         @endif
                     </li>
                 </ul>
