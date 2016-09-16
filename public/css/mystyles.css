@@ -19,6 +19,12 @@ body {
     width: 98px;
 }
 
+.thumbnail {
+    opacity: 0.85;
+    background-color: #353030;
+    border: 0px;
+}
+
 th {
     color:#3097D1;
 }
@@ -37,4 +43,10 @@ h2 {
 
 .jobPropose {
     font-size: 16px;
+}
+
+.jumbotron {
+    opacity: 0.85;
+    background-color: #353030;
+    text-align: center;
 }

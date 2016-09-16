@@ -12,10 +12,27 @@
     </div>
 
     <div class="row">
+        <div class="page-header">
+            <div class="jumbotron">
+                <span style="color: #3097D1;">
+                <h1>IOU?</h1>
+                </span>
+                <h2>"I owe you."</h2>
+                <em>
+                    <h3>Time is money.</h3>
+
+                    <h4>Let's get to work...</h4>
+                </em>
+                <a href="#jumbos"><i class="fa fa-arrow-down fa-4x fa-fw" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="jumbos">
         <div class="col-sm-6 col-md3">
             <div class="jumbotron jumbotronPosts">
                 <h1>Have at look at <strong style="color: #3097D1;">what people want you to do</strong>.</h1>
-                <p><em>...hopefully, you'll then be able to <strong style="color: #3097D1;">propose to complete the job</strong> they've advertised</em></p>
+                <p><em>...hopefully, you'll then be able to <strong style="color: #3097D1;">propose to complete the job</strong> they've advertised.</em></p>
 
                 @if(Auth::check())
                     <a href="{{ route('posts.create') }}" class="btn btn-default" role="button">Create Post</a>
@@ -26,7 +43,7 @@
         <div class="col-sm-6 col-md3">
             <div class="jumbotron jumbotronPosts">
                 <h1>Or, <strong style="color: #3097D1;">ask the community to do something for you</strong>.</h1>
-                <p><em>...hopefully, you'll then <strong <strong style="color: #3097D1;">receive offers</strong>, which you can accept, based on user ratings</em></p>
+                <p><em>...hopefully, you'll then <strong <strong style="color: #3097D1;">receive offers</strong>, which you can accept, based on user ratings.</em></p>
                 <a href="#posts"><i class="fa fa-arrow-down fa-4x fa-fw" aria-hidden="true"></i></a>
             </div>
         </div>
